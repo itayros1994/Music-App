@@ -1,0 +1,56 @@
+.curr-song-details {
+  border: 1px solid rgb(190, 189, 189);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgb(253, 253, 253);
+  width: 80%;
+  margin: auto;
+  margin-top: 7px;
+}
+
+.add-favorite {
+  margin: 10px;
+}
+
+.video-title {
+  text-decoration: none !important;
+  color: black;
+  font-weight: 500;
+}
+
+.video-header {
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.right-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-artist {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.video-summary {
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.like-iqon:hover{
+cursor: pointer;
+  color: green;
+}

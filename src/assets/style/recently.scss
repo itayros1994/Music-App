@@ -1,0 +1,51 @@
+.recently-contianer {
+  font-weight: bold;
+  width: 100%;
+  height: 500px;
+  background-color: white;
+}
+
+.resent-song {
+  margin-left: 40px;
+  font-size: 15px;
+  background-color: #80808033;
+  height: 35px;
+  width: 80%;
+  border-radius: 15px 30px 45px 7.5px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.resent-song:hover {
+ background-color: rgb(116, 116, 116);
+ cursor: pointer;
+ transition: 2s;
+}
+
+.img-recently {
+    margin-top: 0px;
+    margin-right: 10px;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.css-58ftfq-MuiSkeleton-root{
+    display: none !important;
+}
+
+.MuiBox-root css-1glh7o3 {
+    display: none;
+}
+
+.css-1glh7o3{
+  padding-top: 0px !important;
+}
+
+.recently-equlaizer {
+  margin-left: 15px;
+}
+
+.recently-btn{
+  margin-right: 15px;
+}

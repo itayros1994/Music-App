@@ -1,3 +1,16 @@
+.App {
+  margin-top: 120px;
+}
+
+.hero-img {
+  width: 95px;
+  height: 93px;
+  margin-left: 50px;
+  margin-top: 5px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -5,18 +18,20 @@
   margin: auto;
   text-align: center;
   width: 100%;
-  height: 50px;
-  background-color: #06172a;
+  height: 100px;
+  background-color: #3bc024;
   color: white;
-  opacity: 90%;
+  // opacity: 95%;
   cursor: pointer;
   top: 0;
   position: fixed;
+  left: 0;
 }
 
 .links-container {
   display: flex;
   margin: 10px;
+  margin-right: 40px;
   text-decoration: none;
   border-left: 2px solid white;
   padding-left: 20px;
@@ -29,9 +44,11 @@
 }
 
 .app-name {
-  margin-left: 20px;
+  // margin-left: 20px;
   padding-right: 20px;
   border-right: 2px solid white;
+  position: absolute;
+  transform: translate(180px, 19px)
 }
 
 .video-list-container {
@@ -40,6 +57,7 @@
   flex-wrap: wrap;
   margin: 5px;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .video-container {
@@ -49,4 +67,31 @@
 
 .video-player {
   pointer-events: none;
+}
+
+.MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1t29gy6-MuiToolbar-root{
+  background-color: black !important;
+}
+
+.icons {
+
+  color: white;
+}
+
+.playing-now{
+  font-size: 15px;
+  margin-right: 20px;
+  color: black;
+  font-weight: 600;
+}
+
+.header-left-side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.home-iqon {
+  width: 35px;
+  height: 100px;
 }

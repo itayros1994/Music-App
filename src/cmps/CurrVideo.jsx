@@ -6,6 +6,8 @@ import { Button } from "@mui/material";
 import { VideoSummary } from "./VideoSummary";
 import { Search } from "./Search";
 import Loader from "react-loader-spinner";
+import { RecntleySongs } from "./RecntleySongs";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 export function CurrVideo() {
   const { currVideo, favorites, isOpen } = useSelector(
@@ -20,7 +22,6 @@ export function CurrVideo() {
       ) !== -1
     )
       return;
-
     dispatch(setToFavorite(currVideo));
     dispatch(setIsOpen(true));
     setTimeout(() => {
@@ -37,30 +38,36 @@ export function CurrVideo() {
 
   return (
     <div>
-      <Search />
       <div className="curr-video-container">
         <div className="curr-video">
           <iframe
             className="curr-video-player"
             src={`https://www.youtube.com/embed/${currVideo.id.videoId}`}
             frameborder="0"
-          ></iframe>
-          <div className="video-header">
-          <VideoSummary />
-          </div>
-          <div className="video-list-container">
-            <div className="add-favorite">
-              <Button
-                variant="contained"
-                color="success"
-                size="large"
-                onClick={() => onSetToFavorites(currVideo)}
-              >
-                Add To Favorite
-              </Button>
+            ></iframe>
+          <div className="curr-song-details">
+            <div className="video-list-container">
+              <div className="add-favorite">
+                <ThumbUpIcon
+                className="like-iqon"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => onSetToFavorites(currVideo)}
+                  >
+                </ThumbUpIcon>
+              </div>
             </div>
-            <VideoList />
+            <div className="video-header">
+              <div className="right-container">
+                <VideoSummary />
+                <img 
+                  className="img-artist image"
+                  src={currVideo.snippet.thumbnails.default.url}
+                  ></img>
+              </div>
+            </div>
           </div>
+          <VideoList />
         </div>
       </div>
     </div>

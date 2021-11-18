@@ -1,41 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { youtubeService } from "../services/youtube-service";
 import { useDispatch } from "react-redux";
-import { setSetResults } from "../store/action/youtube.action";
+import { setSetResults, setCurrVideo } from "../store/action/youtube.action";
 import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import data from "../data/search.json";
+import currVideo from "../data/currVideo.json";
 
 export function Search() {
-  const [autoCompleteRes, setautoCompleteRes] = useState([]);
   const dispatch = useDispatch();
-
+  const [autoComplete, setAutoComplete] = useState([]);
+  
   let debounce = null;
+  let auto = null;
 
-  const setSongName = (ev) => {
+  const setSongName = (_, songName) => {
     clearTimeout(debounce);
     debounce = setTimeout(() => {
-      let songName = ev.target.value;
+      console.log(songName);
       youtubeService.getSongs(songName).then((searchResults) => {
-        dispatch(setSetResults([]));
         dispatch(setSetResults(searchResults.items));
       });
     }, 1000);
   };
 
-  // const setAutoComplete = (ev) => {
-  //   let userSearch = ev.target.value;
-  //   youtubeService.getAutoComplete(userSearch).then(res => {
-  //     setautoCompleteRes(res);
-  //   });
-  //   console.log(autoCompleteRes);
-  // };
+  useEffect(() => {
+    dispatch(setSetResults(data));
+    dispatch(setCurrVideo(currVideo));
+  }, []);
+
+  const getAutoComlpete = (_, word) => {
+    console.log(word);
+    youtubeService.getAutoComplete(word).then((res) => setAutoComplete(res));
+    console.log(autoComplete);
+  };
 
   return (
     <div className="search">
-      <TextField
-      variant="standard"
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        onInputChange={getAutoComlpete}
         onChange={setSongName}
-        label="Search Song..."
-      ></TextField>
+        options={autoComplete || []}
+        sx={{ width: 300 }}
+        renderInput={(params) => (
+          <TextField variant="outlined" {...params} label="Search..." />
+        )}
+      />
     </div>
   );
 }

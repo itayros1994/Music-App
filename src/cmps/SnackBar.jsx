@@ -30,7 +30,7 @@ export function SnackBar() {
     <Stack spacing={2} sx={{ width: "100%" }}>
       <Snackbar open={isOpen} autoHideDuration={5000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          Added To Favorite ! 😀
+          Added To Liked ! 😀
         </Alert>
       </Snackbar>
     </Stack>
